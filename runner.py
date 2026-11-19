@@ -2,7 +2,9 @@ import pygame
 import sys
 import time
 
-import chess as chess
+import chess
+import Board
+import Pawn
 
 # run the main loop here
 pygame.init()
@@ -17,17 +19,22 @@ mediumFont = pygame.font.Font("OpenSans-Regular.ttf", 28)
 largeFont = pygame.font.Font("OpenSans-Regular.ttf", 40)
 moveFont = pygame.font.Font("OpenSans-Regular.ttf", 60)
 
-while True:
-    for event in pygame.event.get():
-        if event.type == pygame.QUIT:
-            sys.exit()
+board = Board()
+pawns = []
+for _ in range(board.get_side()):
+    pawns.append(Pawn())
 
-    screen.fill(black)
+# while True:
+#     for event in pygame.event.get():
+#         if event.type == pygame.QUIT:
+#             sys.exit()
 
-    title = largeFont.render("Play Chess", True, white)
-    titleRect = title.get_rect()
-    titleRect.center = ((width / 2), 50)
-    screen.blit(title, titleRect)
+#     screen.fill(black)
+
+#     title = largeFont.render("Play Chess", True, white)
+#     titleRect = title.get_rect()
+#     titleRect.center = ((width / 2), 50)
+#     screen.blit(title, titleRect)
 
 
-    pygame.display.flip()
+#     pygame.display.flip()
