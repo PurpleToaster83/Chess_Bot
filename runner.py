@@ -3,8 +3,8 @@ import sys
 import time
 
 import chess
-import Board
-import Pawn
+from board import Board 
+from pawn import Pawn
 
 # run the main loop here
 pygame.init()
@@ -20,9 +20,21 @@ largeFont = pygame.font.Font("OpenSans-Regular.ttf", 40)
 moveFont = pygame.font.Font("OpenSans-Regular.ttf", 60)
 
 board = Board()
-pawns = []
-for _ in range(board.get_side()):
-    pawns.append(Pawn())
+
+# make the pawns
+side = board.get_side()
+for c in range(side):
+    board.set_loc((side - 2, c), Pawn("white", (side - 2, c)))
+    board.set_loc((1, c), Pawn("black", (1, c)))
+    print(board)
+
+board.set_loc((0, 0))
+board.set_loc((0, side))
+board.set_loc((side, 0))
+board.set_loc((side, side))
+
+
+print(board)
 
 # while True:
 #     for event in pygame.event.get():
