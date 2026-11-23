@@ -59,6 +59,7 @@ def utility(board):
     else:
         return 0
 
+#TODO: mak only go so deep -- class variable
 def minimax(board):
     """
     Returns the optimal action for the current player on the board.
